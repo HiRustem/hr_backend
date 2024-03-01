@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
-import { AdminDto } from 'src/dto/admin.dto';
+import { AdminDto } from '../dto/admin.dto';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
