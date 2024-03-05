@@ -7,17 +7,17 @@ export class UsersService {
     constructor( private readonly databaseService: DatabaseService ) {}
 
     async getAllUsersCount() {
-        return this.databaseService.user.count()
+        return await this.databaseService.user.count()
     }
     
     async createUser(userDto: UserDto) {
-        return this.databaseService.user.create({
+        return await this.databaseService.user.create({
           data: userDto,
         })
     }
     
     async deleteUser(userId: number) {
-        return this.databaseService.user.delete({
+        return await this.databaseService.user.delete({
           where: {
             id: userId,
           }
@@ -25,7 +25,7 @@ export class UsersService {
     }
     
     async getUserById(userId: number) {
-        return this.databaseService.user.findUnique({
+        return await this.databaseService.user.findUnique({
           where: {
             id: userId,
           }

@@ -8,22 +8,22 @@ export class UsersController {
 
     @Get('get/:id')
     async getHello(@Param('id', ParseIntPipe) userId: number) {
-        return this.usersService.getUserById(userId);
+        return await this.usersService.getUserById(userId);
     }
 
     @Get('getAllCount')
     async getAllUsers() {
-        return this.usersService.getAllUsersCount()
+        return await this.usersService.getAllUsersCount()
     }
     
     @UsePipes(new ValidationPipe())
     @Post('create')
     async createUser(@Body() userDto: UserDto) {
-        return this.usersService.createUser(userDto)
+        return await this.usersService.createUser(userDto)
     }
 
     @Delete('delete/:id')
     async deleteUser(@Param('id', ParseIntPipe) userId: number) {
-        return this.usersService.deleteUser(userId)
+        return await this.usersService.deleteUser(userId)
     }
 }
